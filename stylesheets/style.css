@@ -1,0 +1,72 @@
+body {
+  width: 100vw;
+  background: black;
+}
+
+.section {
+  padding-left: calc(50px + 2vw);
+  padding-right: 5vw;
+  height: 100vh;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  color: white;
+  font-weight: 700;
+  font-size: 6em;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  color: white;
+  font-weight: 700;
+  font-size: 2.2em;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: white;
+  line-height: 200%;
+}
+
+#home {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: 'quote img' 'txt img';
+}
+
+#home #home-quote {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: quote;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#home #home-img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: img;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#home #home-txt {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: txt;
+}

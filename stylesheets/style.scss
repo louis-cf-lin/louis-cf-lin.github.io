@@ -1,0 +1,58 @@
+$playfair: 'Playfair Display', serif;
+$poppins: 'Poppins', sans-serif;
+
+body {
+  width: 100vw;
+  background: black;
+}
+
+.section {
+  padding-left: calc(50px + 2vw);
+  padding-right: 5vw;
+  height: 100vh;
+  width: 100%;
+}
+
+h1 {
+  font-family: $playfair;
+  color: white;
+  font-weight: 700;
+  font-size: 6em;
+}
+
+h2 {
+  font-family: $playfair;
+  color: white;
+  font-weight: 700;
+  font-size: 2.2em;
+}
+
+p {
+  font-family: $poppins;
+  font-weight: 400;
+  color: white;
+  line-height: 200%;
+}
+
+#home {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: 
+  'quote img'
+  'txt img';
+  #home-quote {
+    grid-area: quote;
+    display: flex;
+    flex-direction: column;
+  }
+  #home-img {
+    grid-area: img;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  #home-txt {
+    grid-area: txt;
+  }
+}
