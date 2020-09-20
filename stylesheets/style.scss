@@ -374,12 +374,76 @@ p {
   justify-content: center;
   color: white;
   font-family: $poppins;
-  padding-left: 10vw;
+  padding-left: calc(60px + 2vw + 10vw);
   .coming-soon {
     text-transform: uppercase;
     letter-spacing: 1rem;
     font-weight: 600;
   }
+}
+
+#cv {
+  // justify-content: flex-end;
+  padding-left: calc(60px + 2vw + 10vw);
+  a {
+    position: relative;
+    display: block;
+    &::before {
+      content: 'Click anywhere on the image to view as a PDF';
+      position: absolute;
+      top: 0;
+      right: 10px;
+      opacity: 0;
+      transform: rotate(90deg) translateX(100%);
+      color: grey;
+      font-weight: 300;
+      transform-origin: 102% 102%;
+      font-size: 0.8em;
+      transition: right 0.2s ease-out, opacity 0.2s ease-out;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: grey;
+      transition: width 0.6s ease-out 0.2s, opacity 0.2s ease-out;
+    }
+    img {
+      height: 90vh;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+  }
+}
+
+[data-anchor="section-6"].active {
+  & > * > #cv {
+    a {
+      &::before {
+        right: 0;
+        opacity: 1;
+        transition: right 0.2s ease-out 1.4s, opacity 0.2s ease-out 1.4s;
+      }
+      &::after {
+        width: 100%;
+        opacity: 0;
+        transition: width 0.6s ease-out 0.2s, opacity 0.4s ease-out 0.9s;
+      }
+      img {
+        opacity: 1;
+        transition: opacity 0.1s ease-out 0.9s;
+      }
+    }
+  }
+}
+
+footer {
+  color: white;
+  
 }
 
 @keyframes menu-hover {
