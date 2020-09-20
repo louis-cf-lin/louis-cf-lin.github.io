@@ -11,7 +11,7 @@ new fullpage('#fullpage', {
 
 document.querySelectorAll('.menu-item').forEach((el, i) => {
   el.addEventListener('click', () => {
-    console.log('hi')
+    console.log(i)
     fullpage_api.moveTo(i + 1)
   })
 })

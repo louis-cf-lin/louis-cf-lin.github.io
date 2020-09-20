@@ -28,6 +28,7 @@ nav {
   height: 100vh;
   display: flex;
   align-items: center;
+
   &:hover {
     .nav-main {
       width: 10vw;
@@ -49,8 +50,8 @@ nav {
   height: 100%;
   width: calc(60px + 2vw);
   position: relative;
-  padding: 5vh 1vw;
   transition: width 0.2s ease-out;
+
   &::after {
     content: '';
     position: absolute;
@@ -81,34 +82,92 @@ nav {
 }
 
 #menu {
-  height: 80%;
+  flex-basis: 0;
+  flex-grow: 1;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   .menu-item {
+    margin: 0 1vw;
     width: 100%;
     font-family: $poppins;
     font-weight: 700;
+    font-size: 0.8em;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: purple;
+    color: white;
     cursor: pointer;
-    &.active {
-      color: white;
+    letter-spacing: 0.1rem;
+    margin: 3vh 0;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: visible;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50%;
+      width: 0;
+      border-bottom: thin solid white;
+      transition: width 0.2s ease-out;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2vw;
+      margin-top: -2vh;
+      height: 2vh;
+      width: 1px;
+      background: white;
+    }
+    &:hover::after {
+      animation: menu-hover 0.6s linear infinite;
+    }
+    &.active::before {
+      width: 1vw;
+    }
+    &.active::after {
+      animation: none;
     }
   }
-  .menu-home {
-    margin-bottom: 20vh;
+  #menu-home {
+    margin-top: 5vh;
+    margin-bottom: 0;
+    overflow: visible;
     img {
       width: 40px;
       height: auto;
       object-fit: contain;
     }
+    &::before {
+      top: -5vh;
+      left: 0;
+      height: 0;
+      width: 50%;
+      border-bottom: none;
+      border-right: thin solid white;
+      transition: height 0.2s ease-out;
+    }
+    &::after {
+      content: none;
+    }
+    &.active::before {
+      height: 3vh;
+    }
+  }
+  .nav-space {
+    flex-basis: 0;
+    flex-grow: 1;
   }
 }
 
 .nav-socials {
-  height: 20%;
   width: 100%;
+  padding: 0 1vw;
+  margin-bottom: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -122,6 +181,21 @@ nav {
     align-items: center;
     justify-content: center;
     margin: 1vh 0;
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2vw;
+      margin-top: -2vh;
+      height: 2vh;
+      width: 1px;
+      background: white;
+    }
+    &:hover::after {
+      animation: menu-hover 0.6s linear infinite;
+    }
   }
   a:last-child {
     margin-bottom: 0;
@@ -159,6 +233,7 @@ p {
   font-weight: 300;
   color: white;
   line-height: 200%;
+  font-size: 0.8em;
 }
 
 #home {
@@ -169,11 +244,21 @@ p {
   'txt img';
   padding-top: 10vh;
   padding-bottom: 10vh;
+  &::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 11vw;
+    height: 30vh;
+    width: 1px;
+    background: white;
+  }
   #home-quote {
     grid-area: quote;
     display: flex;
     flex-direction: column;
-    margin-left: 5vw;
+    margin-left: 7vw;
     margin-bottom: 5vh;
     align-self: flex-end;
     .home-latin {
@@ -200,6 +285,7 @@ p {
     max-width: 100%;
     align-self: flex-end;
     justify-self: flex-start;
+    position: relative;
   }
   #home-txt {
     grid-area: txt;
@@ -209,11 +295,12 @@ p {
     display: flex;
     flex-direction: column;
     margin-right: -2vw;
+    margin-bottom: 5vh;
     .home-name {
       white-space: nowrap;
     }
     .home-para {
-      margin-left: 2vw;
+      margin-left: 5vw;
       position: relative;
       overflow: visible;
       &::after {
@@ -227,4 +314,9 @@ p {
       }
     }
   }
+}
+
+@keyframes menu-hover {
+  0% {margin-top: -2vh;}
+  100% {margin-top: 6vh;}
 }
