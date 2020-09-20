@@ -32,8 +32,8 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: margin 0.8s cubic-bezier(0.39, 1.07, 0.6, 0.97);
-  transition: margin 0.8s cubic-bezier(0.39, 1.07, 0.6, 0.97);
+  -webkit-transition: margin 0.7s cubic-bezier(0.39, 1.07, 0.6, 0.97);
+  transition: margin 0.7s cubic-bezier(0.39, 1.07, 0.6, 0.97);
 }
 
 nav:hover .nav-main {
@@ -53,7 +53,7 @@ nav:hover .nav-hover:after {
 }
 
 nav.up {
-  margin-top: -20vh;
+  margin-top: -25vh;
 }
 
 .nav-main {
@@ -638,8 +638,6 @@ footer .footer-content .footer-item {
 }
 
 footer .footer-content .footer-item h3 {
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
   font-size: 0.8em;
   font-weight: 600;
   letter-spacing: 1px;
@@ -647,12 +645,36 @@ footer .footer-content .footer-item h3 {
 }
 
 footer .footer-content .footer-item a, footer .footer-content .footer-item p {
-  font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 0.6em;
-  color: white;
   margin: 0.2rem 0;
+}
+
+footer .footer-content .footer-item h3, footer .footer-content .footer-item a, footer .footer-content .footer-item p {
+  color: white;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
   text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+footer .footer-content .footer-item h3::after, footer .footer-content .footer-item a::after, footer .footer-content .footer-item p::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+footer .footer-content .footer-item h3:hover::after, footer .footer-content .footer-item a:hover::after, footer .footer-content .footer-item p:hover::after {
+  opacity: 1;
 }
 
 @-webkit-keyframes menu-hover {
