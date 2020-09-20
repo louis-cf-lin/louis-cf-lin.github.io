@@ -323,6 +323,7 @@ p {
       grid-template-areas: 'quote img' 'txt img';
   padding-top: 10vh;
   padding-bottom: 10vh;
+  padding-left: calc(60px + 2vw);
 }
 
 #home::before {
@@ -466,6 +467,27 @@ p {
 [data-anchor="section-1"].active > * > #home #home-txt > .home-para::after {
   top: 2vh;
   height: 30vh;
+}
+
+.section-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  padding-left: 10vw;
+}
+
+.section-container .coming-soon {
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  font-weight: 600;
 }
 
 @-webkit-keyframes menu-hover {

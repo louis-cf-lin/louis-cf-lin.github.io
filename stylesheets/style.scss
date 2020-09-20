@@ -259,6 +259,10 @@ p {
   'txt img';
   padding-top: 10vh;
   padding-bottom: 10vh;
+
+  // REMEMBER TO REMOVE THIS
+  padding-left: calc(60px + 2vw);
+
   &::before {
     z-index: 2;
     content: '';
@@ -360,6 +364,20 @@ p {
       top: 2vh;
       height: 30vh;
     }
+  }
+}
+
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: $poppins;
+  padding-left: 10vw;
+  .coming-soon {
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    font-weight: 600;
   }
 }
 
