@@ -31,8 +31,9 @@ nav {
 
   &:hover {
     .nav-main {
-      width: 10vw;
-      min-width: 150px;
+      background: rgba(0,0,0,0.9);
+      width: 15vw;
+      min-width: 200px;
       #menu {
         .menu-item {
           span {
@@ -131,7 +132,7 @@ nav {
       content: '';
       position: absolute;
       top: 0;
-      left: 1vw;
+      left: 2vw;
       margin-top: -2vh;
       height: 2vh;
       width: 1px;
@@ -264,9 +265,21 @@ p {
     position: absolute;
     top: 0;
     right: 11vw;
-    height: 30vh;
+    height: 50vh;
     width: 1px;
     background: white;
+    transition: height 2s ease-out;
+  }
+  &::after {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    bottom: 12vh;
+    right: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 2s ease-out;
   }
   #home-quote {
     grid-area: quote;
@@ -283,7 +296,8 @@ p {
         height: 1px;
         background: white;
         margin-left: 2vw;
-        max-width: 15vw;
+        max-width: 0;
+        transition: max-width 2.5s ease-out;
       }
     }
     p {
@@ -320,12 +334,31 @@ p {
       &::after {
         content: '';
         position: absolute;
-        top: 2vh;
+        top: 10vh;
+        height: 40vh;
         left: -5vw;
-        height: 30vh;
         width: 1px;
         background: white;
+        transition: top 1.5s ease-out, height 1.5s ease-out;
       }
+    }
+  }
+}
+
+[data-anchor="section-1"].active {
+  & > * > #home {
+    &::before {
+      height: 30vh;
+    }
+    &::after {
+      width: 15vw;
+    }
+    #home-quote > .home-latin > .line {
+      max-width: 15vw;
+    }
+    #home-txt > .home-para::after {
+      top: 2vh;
+      height: 30vh;
     }
   }
 }
