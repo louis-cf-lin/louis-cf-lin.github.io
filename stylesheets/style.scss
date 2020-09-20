@@ -28,6 +28,7 @@ nav {
   height: 100vh;
   display: flex;
   align-items: center;
+  transition: margin 0.8s cubic-bezier(.39,1.07,.6,.97);
 
   &:hover {
     .nav-main {
@@ -50,6 +51,10 @@ nav {
       }
     }
   }
+
+  &.up {
+    margin-top: -20vh;
+  }
 }
 
 .nav-main {
@@ -69,7 +74,7 @@ nav {
     right: 0;
     height: 96vh;
     width: 1px;
-    background: white;
+    background: grey;
   }
 }
 
@@ -85,8 +90,8 @@ nav {
     left: 5px;
     height: 30px;
     width: 5px;
-    border-left: thin solid white;
-    border-right: thin solid white;
+    border-left: thin solid grey;
+    border-right: thin solid grey;
     transition: width 0.2s ease-out, left 0.2s ease-out, opacity 0.2s ease-out;
   }
 }
@@ -126,7 +131,7 @@ nav {
       left: 0;
       height: 50%;
       width: 0;
-      border-bottom: thin solid white;
+      border-bottom: thin solid grey;
       transition: width 0.2s ease-out;
     }
     &::after {
@@ -164,7 +169,7 @@ nav {
       height: 0;
       width: 50%;
       border-bottom: none;
-      border-right: thin solid white;
+      border-right: thin solid grey;
       transition: height 0.2s ease-out;
     }
     &::after {
@@ -229,7 +234,7 @@ h1 {
   font-family: $playfair;
   color: white;
   font-weight: 700;
-  font-size: 5em;
+  font-size: 4em;
   font-style: normal;
   margin-bottom: 0.1em;
 }
@@ -238,7 +243,7 @@ h2 {
   font-family: $playfair;
   color: white;
   font-weight: 700;
-  font-size: 2.2em;
+  font-size: 2em;
   font-style: normal;
   margin-bottom: 0.1em;
   display: block;
@@ -254,7 +259,8 @@ p {
 
 #home {
   display: grid;
-  grid-template-rows: 40% 60%;
+  grid-template-rows: 60% 40%;
+  grid-template-columns: 70% 30%;
   grid-template-areas: 
   'quote img'
   'txt img';
@@ -262,7 +268,7 @@ p {
   padding-bottom: 10vh;
 
   // REMEMBER TO REMOVE THIS
-  padding-left: calc(60px + 2vw);
+  padding-left: calc(60px + 2vw + 10vw);
 
   &::before {
     z-index: 2;
@@ -273,7 +279,7 @@ p {
     height: 50vh;
     width: 1px;
     background: white;
-    transition: height 2s ease-out;
+    transition: height 2.2s ease-out;
   }
   &::after {
     z-index: 2;
@@ -284,15 +290,14 @@ p {
     width: 0;
     height: 1px;
     background: white;
-    transition: width 2s ease-out;
+    transition: width 1.8s ease-out;
   }
   #home-quote {
     grid-area: quote;
     display: flex;
     flex-direction: column;
-    margin-left: 7vw;
+    margin-left: 5vw;
     margin-bottom: 10vh;
-    align-self: flex-end;
     .home-latin {
       display: flex;
       align-items: center;
@@ -302,7 +307,7 @@ p {
         background: white;
         margin-left: 2vw;
         max-width: 0;
-        transition: max-width 2.5s ease-out;
+        transition: max-width 3s ease-out;
       }
     }
     p {
@@ -313,9 +318,9 @@ p {
   #home-img {
     grid-area: img;
     object-fit: cover;
-    height: 85%;
-    width: 100%;
-    max-width: 100%;
+    height: 70%;
+    width: 60%;
+    min-width: 300px;
     align-self: flex-end;
     justify-self: flex-start;
     position: relative;
@@ -327,7 +332,7 @@ p {
     width: 65%;
     display: flex;
     flex-direction: column;
-    margin-right: -2vw;
+    margin-right: 2vw;
     margin-bottom: 5vh;
     .home-name {
       white-space: nowrap;
@@ -344,7 +349,7 @@ p {
         left: -5vw;
         width: 1px;
         background: white;
-        transition: top 1.5s ease-out, height 1.5s ease-out;
+        transition: top 4s ease-out, height 4s ease-out;
       }
     }
   }
@@ -356,7 +361,7 @@ p {
       height: 30vh;
     }
     &::after {
-      width: 15vw;
+      width: 18vw;
     }
     #home-quote > .home-latin > .line {
       max-width: 15vw;
@@ -382,6 +387,30 @@ p {
   }
 }
 
+[data-anchor="section-5"].active ~ [data-anchor="section-6"] {
+  & > * > #cv {
+    a {
+      &::before {
+        right: 10px;
+        opacity: 0;
+        transition: right 0.2s ease-out, opacity 0.2s ease-out;
+      }
+      &::after {
+
+
+        width: 0;
+        opacity: 1;
+        transition: width 0.6s ease-out 0.2s, opacity 0.2s ease-out;
+      }
+      img {
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+
+      }
+    }
+  }
+}
+
 #cv {
   // justify-content: flex-end;
   padding-left: calc(60px + 2vw + 10vw);
@@ -392,58 +421,94 @@ p {
       content: 'Click anywhere on the image to view as a PDF';
       position: absolute;
       top: 0;
-      right: 10px;
-      opacity: 0;
       transform: rotate(90deg) translateX(100%);
       color: grey;
       font-weight: 300;
       transform-origin: 102% 102%;
       font-size: 0.8em;
-      transition: right 0.2s ease-out, opacity 0.2s ease-out;
+
+
+      right: 0;
+      opacity: 1;
+      transition: right 0.2s ease-out 1.4s, opacity 0.2s ease-out 1.4s;
     }
     &::after {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 0;
       height: 100%;
       background: grey;
-      transition: width 0.6s ease-out 0.2s, opacity 0.2s ease-out;
+
+      width: 100%;
+      opacity: 0;
+      transition: width 0.6s ease-out 0.2s, opacity 0.4s ease-out 0.9s;
     }
     img {
       height: 90vh;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.2s ease-out;
-    }
-  }
-}
 
-[data-anchor="section-6"].active {
-  & > * > #cv {
-    a {
-      &::before {
-        right: 0;
-        opacity: 1;
-        transition: right 0.2s ease-out 1.4s, opacity 0.2s ease-out 1.4s;
-      }
-      &::after {
-        width: 100%;
-        opacity: 0;
-        transition: width 0.6s ease-out 0.2s, opacity 0.4s ease-out 0.9s;
-      }
-      img {
-        opacity: 1;
-        transition: opacity 0.1s ease-out 0.9s;
-      }
+      opacity: 1;
+      transition: opacity 0.1s ease-out 0.9s;
     }
   }
 }
 
 footer {
-  color: white;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .footer-sep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 0 2vh 0;
+    #footer-logo {
+      height: 25px;
+      width: auto;
+      object-fit: contain;
+      padding: 4px;
+      margin: 0 1.5vw;
+      cursor: pointer;
+    }
+    &::before,
+    &::after {
+      content: '';
+      height: 1px;
+      width: 20vw;
+      background: grey;
+    }
+  }
+  .footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    padding-bottom: 5vh;
+    .footer-item {
+      width: 10vw;
+      margin: 0 2vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        cursor: pointer;
+        font-family: $poppins;
+        font-size: 0.8em;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+      a, p {
+        font-family: $poppins;
+        font-weight: 300;
+        font-size: 0.6em;
+        color: white;
+        margin: 0.2rem 0;
+        text-align: center;
+      }
+    }
+  }
 }
 
 @keyframes menu-hover {

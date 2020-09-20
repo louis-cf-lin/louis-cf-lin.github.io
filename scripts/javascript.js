@@ -5,13 +5,30 @@ new fullpage('#fullpage', {
   scrollHorizontally: false,
   menu: '#menu',
   anchors: ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'section-6'],
-  lockAnchors: true
+  lockAnchors: true,
+	onLeave: function(origin, destination, direction){
+		//after leaving section 2
+		if (destination.index == 6) {
+			document.querySelector('nav').classList.toggle('up')
+		} else if (origin.index == 6) {
+      document.querySelector('nav').classList.toggle('up')
+    }
+	}
 })
 // story.size = true
 
 document.querySelectorAll('.menu-item').forEach((el, i) => {
   el.addEventListener('click', () => {
-    console.log(i)
     fullpage_api.moveTo(i + 1)
   })
+})
+
+document.querySelectorAll('.footer-item').forEach((el, i) => {
+  el.querySelector('h3').addEventListener('click', () => {
+    fullpage_api.moveTo(i + 2)
+  })
+})
+
+document.getElementById('footer-logo').addEventListener('click', () => {
+  fullpage_api.moveTo(1)
 })
