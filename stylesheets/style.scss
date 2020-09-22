@@ -257,6 +257,7 @@ p {
   font-size: 0.8em;
 }
 
+#home-suppress.home-section.active > * > #home,
 #home {
   display: grid;
   grid-template-rows: 60% 40%;
@@ -355,7 +356,7 @@ p {
   }
 }
 
-[data-anchor="section-1"].active {
+.home-section.active {
   & > * > #home {
     &::before {
       height: 30vh;

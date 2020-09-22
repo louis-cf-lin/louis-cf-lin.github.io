@@ -322,6 +322,7 @@ p {
   font-size: 0.8em;
 }
 
+#home-suppress.home-section.active > * > #home,
 #home {
   display: -ms-grid;
   display: grid;
@@ -335,6 +336,7 @@ p {
   padding-left: calc(60px + 2vw + 10vw);
 }
 
+#home-suppress.home-section.active > * > #home::before,
 #home::before {
   z-index: 2;
   content: '';
@@ -348,6 +350,7 @@ p {
   transition: height 2.2s ease-out;
 }
 
+#home-suppress.home-section.active > * > #home::after,
 #home::after {
   z-index: 2;
   content: '';
@@ -361,6 +364,7 @@ p {
   transition: width 1.8s ease-out;
 }
 
+#home-suppress.home-section.active > * > #home #home-quote,
 #home #home-quote {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -376,6 +380,7 @@ p {
   margin-bottom: 10vh;
 }
 
+#home-suppress.home-section.active > * > #home #home-quote .home-latin,
 #home #home-quote .home-latin {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -385,6 +390,7 @@ p {
           align-items: center;
 }
 
+#home-suppress.home-section.active > * > #home #home-quote .home-latin .line,
 #home #home-quote .home-latin .line {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0px;
@@ -397,11 +403,13 @@ p {
   transition: max-width 3s ease-out;
 }
 
+#home-suppress.home-section.active > * > #home #home-quote p,
 #home #home-quote p {
   font-style: italic;
   margin-left: 2vw;
 }
 
+#home-suppress.home-section.active > * > #home #home-img,
 #home #home-img {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
@@ -418,6 +426,7 @@ p {
   position: relative;
 }
 
+#home-suppress.home-section.active > * > #home #home-txt,
 #home #home-txt {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -437,16 +446,19 @@ p {
   margin-bottom: 5vh;
 }
 
+#home-suppress.home-section.active > * > #home #home-txt .home-name,
 #home #home-txt .home-name {
   white-space: nowrap;
 }
 
+#home-suppress.home-section.active > * > #home #home-txt .home-para,
 #home #home-txt .home-para {
   margin-left: 5vw;
   position: relative;
   overflow: visible;
 }
 
+#home-suppress.home-section.active > * > #home #home-txt .home-para::after,
 #home #home-txt .home-para::after {
   content: '';
   position: absolute;
@@ -459,19 +471,19 @@ p {
   transition: top 4s ease-out, height 4s ease-out;
 }
 
-[data-anchor="section-1"].active > * > #home::before {
+.home-section.active > * > #home::before {
   height: 30vh;
 }
 
-[data-anchor="section-1"].active > * > #home::after {
+.home-section.active > * > #home::after {
   width: 18vw;
 }
 
-[data-anchor="section-1"].active > * > #home #home-quote > .home-latin > .line {
+.home-section.active > * > #home #home-quote > .home-latin > .line {
   max-width: 15vw;
 }
 
-[data-anchor="section-1"].active > * > #home #home-txt > .home-para::after {
+.home-section.active > * > #home #home-txt > .home-para::after {
   top: 2vh;
   height: 30vh;
 }

@@ -6,16 +6,17 @@ new fullpage('#fullpage', {
   menu: '#menu',
   anchors: ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'section-6'],
   lockAnchors: true,
-  parallax: true,
 	onLeave: function(origin, destination, direction){
 		if (destination.index == 6) {
 			document.querySelector('nav').classList.toggle('up')
 		} else if (origin.index == 6) {
       document.querySelector('nav').classList.toggle('up')
     }
-	}
+  },
+  afterRender: function() {
+    document.getElementById('home-suppress').id = ''
+  }
 })
-// story.size = true
 
 document.querySelectorAll('.menu-item').forEach((el, i) => {
   el.addEventListener('click', () => {
