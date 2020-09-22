@@ -6,8 +6,8 @@ new fullpage('#fullpage', {
   menu: '#menu',
   anchors: ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'section-6'],
   lockAnchors: true,
+  parallax: true,
 	onLeave: function(origin, destination, direction){
-		//after leaving section 2
 		if (destination.index == 6) {
 			document.querySelector('nav').classList.toggle('up')
 		} else if (origin.index == 6) {

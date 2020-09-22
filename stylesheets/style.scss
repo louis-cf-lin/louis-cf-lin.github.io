@@ -53,7 +53,7 @@ nav {
   }
 
   &.up {
-    margin-top: -25vh;
+    margin-top: -30vh;
   }
 }
 
@@ -396,8 +396,6 @@ p {
         transition: right 0.2s ease-out, opacity 0.2s ease-out;
       }
       &::after {
-
-
         width: 0;
         opacity: 1;
         transition: width 0.6s ease-out 0.2s, opacity 0.2s ease-out;
@@ -405,7 +403,6 @@ p {
       img {
         opacity: 0;
         transition: opacity 0.2s ease-out;
-
       }
     }
   }
@@ -418,7 +415,7 @@ p {
     position: relative;
     display: block;
     &::before {
-      content: 'Click anywhere on the image to view as a PDF';
+      content: 'Please get in touch for full CV';
       position: absolute;
       top: 0;
       transform: rotate(90deg) translateX(100%);
@@ -447,6 +444,7 @@ p {
     img {
       height: 90vh;
       object-fit: cover;
+      filter: blur(10px);
 
       opacity: 1;
       transition: opacity 0.1s ease-out 0.9s;
@@ -462,7 +460,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5vh 0 2vh 0;
+    padding: 8vh 0 4vh 0;
     #footer-logo {
       height: 25px;
       width: auto;
@@ -484,7 +482,7 @@ footer {
     align-items: flex-start;
     justify-content: center;
     color: white;
-    padding-bottom: 5vh;
+    padding-bottom: 6vh;
     .footer-item {
       width: 10vw;
       margin: 0 2vw;
@@ -500,7 +498,7 @@ footer {
       a, p {
         font-weight: 300;
         font-size: 0.6em;
-        margin: 0.2rem 0;
+        margin: 0.3rem 0;
       }
       h3, a, p {
         color: white;
