@@ -237,6 +237,9 @@ h1 {
   font-size: 4em;
   font-style: normal;
   margin-bottom: 0.1em;
+  span {
+    display: none;
+  }
 }
 
 h2 {
@@ -277,7 +280,7 @@ p {
     position: absolute;
     top: 0;
     right: 11vw;
-    height: 50vh;
+    height: 10vh;
     width: 1px;
     background: white;
     transition: height 2.2s ease-out;
@@ -286,9 +289,9 @@ p {
     z-index: 2;
     content: '';
     position: absolute;
-    bottom: 12vh;
+    top: 12vh;
     right: 0;
-    width: 0;
+    width: 8vw;
     height: 1px;
     background: white;
     transition: width 1.8s ease-out;
@@ -319,8 +322,8 @@ p {
   #home-img {
     grid-area: img;
     object-fit: cover;
-    height: 70%;
-    width: 60%;
+    height: 80%;
+    width: 100%;
     min-width: 300px;
     align-self: flex-end;
     justify-self: flex-start;
@@ -362,7 +365,7 @@ p {
       height: 30vh;
     }
     &::after {
-      width: 18vw;
+      width: 16vw;
     }
     #home-quote > .home-latin > .line {
       max-width: 15vw;
