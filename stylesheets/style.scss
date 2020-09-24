@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 $playfair: 'Playfair Display', serif;
 $poppins: 'Poppins', sans-serif;
+$dm: 'DM Serif Display', serif;
 $right-spacing: 10vw;
 
 * {
@@ -28,7 +31,7 @@ nav {
   height: 100vh;
   display: flex;
   align-items: center;
-  transition: margin 0.7s cubic-bezier(.39,1.07,.6,.97);
+  transition: margin 0.6s ease-out 0.1s;
 
   &:hover {
     .nav-main {
@@ -65,7 +68,7 @@ nav {
   width: calc(60px + 2vw);
   min-width: calc(60px + 2vw);
   position: relative;
-  transition: width 0.2s ease-out, min-width 0.2s ease-out;
+  transition: width 0.2s ease-out, min-width 0.2s ease-out, background-color 0.2s ease-out;
 
   &::after {
     content: '';
@@ -230,16 +233,18 @@ nav {
   padding-right: $right-spacing;
 }
 
-h1 {
+h1,
+.home-name {
   font-family: $playfair;
   color: white;
   font-weight: 700;
   font-size: 4em;
   font-style: normal;
   margin-bottom: 0.1em;
-  span {
-    display: none;
-  }
+}
+
+h1 {
+  display: none;
 }
 
 h2 {
@@ -377,7 +382,10 @@ p {
   }
 }
 
-.section-container {
+#about,
+#projects,
+#work-exp,
+#ls {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -413,45 +421,138 @@ p {
 }
 
 #cv {
-  // justify-content: flex-end;
-  padding-left: calc(60px + 2vw + 10vw);
-  a {
-    position: relative;
-    display: block;
-    &::before {
-      content: 'Please get in touch for full CV';
-      position: absolute;
-      top: 0;
-      transform: rotate(90deg) translateX(100%);
-      color: grey;
+  padding-left: calc(60px + 7vw);
+  padding-right: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .cv-title {
+    width: 20%;
+    flex: 1 1 0;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    h2 {
+      font-family: $poppins;
+      margin: 0;
+      line-height: 100%;
+      font-size: 2.5em;
+    }
+    .cv-title-1 {
       font-weight: 300;
-      transform-origin: 102% 102%;
-      font-size: 0.8em;
-
-
-      right: 0;
-      opacity: 1;
-      transition: right 0.2s ease-out 1.4s, opacity 0.2s ease-out 1.4s;
     }
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background: grey;
-
-      width: 100%;
-      opacity: 0;
-      transition: width 0.6s ease-out 0.2s, opacity 0.4s ease-out 0.9s;
+    .cv-title-2 {
+      font-weight: 600;
     }
-    img {
-      height: 90vh;
-      object-fit: cover;
-      filter: blur(10px);
-
-      opacity: 1;
-      transition: opacity 0.1s ease-out 0.9s;
+  }
+  .cv-contents-wrap {
+    width: 100%;
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: space-between;
+  }
+  .cv-quarter {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    & > * {
+      font-family: $poppins;
+      font-size: 0.75em;
+      line-height: 175%;
+      font-weight: 300;
+    }
+    .cv-subtitle {
+      font-family: $playfair;
+      font-size: 1.5em;
+      font-weight: 600;
+      font-style: normal;
+      margin: 4vh 0 2vh 1em;
+      line-height: 100%;
+      span {
+        font-family: $dm;
+        font-weight: 400;
+      }
+    }
+    .cv-caps {
+      font-size: 0.625em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: grey;
+      letter-spacing: 0.2em;
+    }
+    .cv-bold {
+      font-weight: 500;
+      margin-top: 0.5em;
+      margin-bottom: 0.25em;
+    }
+    .cv-it {
+      font-style: italic;
+      font-size: 0.625em;
+      margin-top: 0.25em;
+      span {
+        font-style: normal;
+        margin: 0 0.2em;
+      }
+      &.space-below {
+        margin-bottom: 2vh;
+      }
+    }
+    .cv-skills {
+      margin-bottom: 0.75em;
+    }
+    .cv-honours,
+    .cv-lead {
+      margin: 0.2em 0;
+      .year {
+        width: 4em;
+        display: inline-block;
+      }
+      .bold {
+        font-weight: 500;
+      }
+    }
+    .cv-botany {
+      font-weight: 400;
+      font-size: 0.625em;
+      margin-top: 1vh;
+      margin-bottom: 0.25em;
+    }
+    .cv-botany-txt {
+      font-size: 0.625em;
+      span {
+        font-weight: 500;
+      }
+    }
+    &.quarter-1 {
+      width: 20%;
+    }
+    &.quarter-2 {
+      width: 20%;
+    }
+    &.quarter-3 {
+      width: 30%;
+    }
+    &.quarter-4 {
+      width: 15%;;
+    }
+  }
+  
+  .cv-contact {
+    align-self: flex-end;
+    flex: 0 1 auto;
+    text-align: center;
+    color: grey;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: $poppins;
+    font-weight: 600;
+    font-size: 0.75em;
+    margin: 6vh 0 2vh 0;
+    transition: color 0.2s ease-out;
+    &:hover {
+      color: white;
     }
   }
 }
@@ -477,8 +578,10 @@ footer {
     &::after {
       content: '';
       height: 1px;
-      width: 20vw;
+      width: 0;
       background: grey;
+      opacity: 0;
+      transition: 0.2s width ease-out 0.2s, 0.2s opacity 0.2s;
     }
   }
   .footer-content {
@@ -527,6 +630,18 @@ footer {
           opacity: 1;
         }
       }
+    }
+  }
+}
+
+footer.active {
+  .footer-sep {
+    &::before,
+    &::after {
+      content: '';
+      width: 20vw;
+      opacity: 1;
+      transition: width 1.2s ease-out 0.4s, opacity 0.4s ease-out 0.4s;
     }
   }
 }
