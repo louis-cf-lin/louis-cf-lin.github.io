@@ -11,6 +11,10 @@ new fullpage('#fullpage', {
 			document.querySelector('nav').classList.toggle('up')
 		} else if (origin.index == 6) {
       document.querySelector('nav').classList.toggle('up')
+    } else if (origin.index !== 6 && destination.index == 5) {
+      document.getElementById('cv').classList.add('engaged')
+    } else if (origin.index == 5 && destination.index !== 6) {
+      document.getElementById('cv').classList.remove('engaged')
     }
   },
   afterRender: function() {

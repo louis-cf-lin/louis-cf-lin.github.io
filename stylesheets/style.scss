@@ -276,8 +276,7 @@ p {
   padding-top: 10vh;
   padding-bottom: 10vh;
 
-  // REMEMBER TO REMOVE THIS
-  padding-left: calc(60px + 2vw + 10vw);
+  padding-left: calc(60px + 2vw + 5vw);
 
   &::before {
     z-index: 2;
@@ -303,10 +302,10 @@ p {
   }
   #home-quote {
     grid-area: quote;
+    align-self: center;
     display: flex;
     flex-direction: column;
     margin-left: 5vw;
-    margin-bottom: 10vh;
     .home-latin {
       display: flex;
       align-items: center;
@@ -399,44 +398,13 @@ p {
   }
 }
 
-[data-anchor="section-5"].active ~ [data-anchor="section-6"] {
-  & > * > #cv {
-    .cv-contents-wrap {
-      .cv-quarter {
-        opacity: 0;
-        .cv-subcontainer {
-          opacity: 0;
-          transition: opacity 0.2s ease-out 0.2s;
-        }
-        &.quarter-1,
-        &.quarter-2,
-        &.quarter-3,
-        &.quarter-4 {
-          transition: opacity 0.2s ease-out 0.2s;
-        }
-        &:not(:first-child)::before {
-          opacity: 0;
-        }
-      }
-    }
-    .cv-contact {
-      opacity: 0;
-      margin: 8vh 0 0 0;
-      transition: margin 0.2s ease-out 0.2s, opacity 0.2s ease-out 0.2s;
-    }
-  }
-}
-
-[data-anchor="section-6"] {
-  overflow: hidden;
-}
-
 #cv {
   padding-left: calc(60px + 7vw);
   padding-right: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
   .cv-title {
     width: 20%;
     margin-bottom: 2vh;
@@ -468,7 +436,7 @@ p {
     flex-direction: column;
     color: white;
     position: relative;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.2s ease-out 0.2s;
     & > * {
       font-family: $poppins;
@@ -479,6 +447,8 @@ p {
     .cv-subcontainer {
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transition: opacity 0.2s ease-out 0.2s;
     }
     #cv-work-exp,
     #cv-projects {
@@ -547,32 +517,17 @@ p {
     }
     &.quarter-1 {
       width: 20%;
-      .cv-subcontainer {
-        opacity: 1;
-        transition: opacity 0.4s ease-out 0.4s;
-      }
     }
     &.quarter-2 {
       width: 20%;
-      .cv-subcontainer {
-        opacity: 1;
-        transition: opacity 0.4s ease-out 0.6s;
-      }
     }
     &.quarter-3 {
       width: 30%;
-      .cv-subcontainer {
-        opacity: 1;
-        transition: opacity 0.4s ease-out 0.8s;
-      }
     }
     &.quarter-4 {
-      .cv-subcontainer {
-        opacity: 1;
-        transition: opacity 0.4s ease-out 1s;
-      }
       width: 15%;;
     }
+
     &:not(:first-child)::before,
     &:not(:first-child)::after {
       content: '';
@@ -581,14 +536,14 @@ p {
       bottom: calc(-8vh - 1vw);
       height: 100vh;
       width: 1px;
-      opacity: 1;
+      opacity: 0;
       background: rgba(255,255,255,0.1);
       transition: opacity 0.2s ease-out 0.2s;
     }
     &:not(:first-child)::after {
       bottom: 100vh;
       background: rgba(255,255,255,1);
-      transition: bottom 1s ease-out, opacity 0.2s ease-out;
+      transition: bottom 1s ease-out, opacity 1s ease-out;
     }
   }
   
@@ -602,36 +557,67 @@ p {
     font-family: $poppins;
     font-weight: 600;
     font-size: calc(0.3125vw + 6px);
-    margin: 6vh 0 2vh 0;
     height: 1vw;
-    opacity: 1;
-    transition: color 0.2s ease-out, margin 0.2s ease-out 2s, opacity 0.2s ease-out 2s;
+    opacity: 0;
+    margin: 8vh 0 0 0;
+    transition: margin 0.2s ease-out 0.2s, opacity 0.2s ease-out 0.2s;
     &:hover {
       color: white;
     }
   }
 }
 
-[data-anchor="section-6"].active {
-  & > * > #cv {
-    .cv-contents-wrap { 
-      .cv-quarter {
-        &:not(:first-child)::after {
-          bottom: calc(-8vh - 1vw - 100vh);
+#cv.engaged {
+  .cv-contents-wrap { 
+    .cv-quarter {
+      opacity: 1;
+      &:not(:first-child)::before {
+        opacity: 1;
+      }
+      &:not(:first-child)::after {
+        bottom: calc(-8vh - 1vw - 100vh);
+        opacity: 1;
+        transition: bottom 1s ease-out 0.4s;
+      }
+      &.quarter-1 {
+        .cv-subcontainer {
           opacity: 1;
+          transition: opacity 0.4s ease-out 0.4s;
+        }
+      }
+      &.quarter-2 {
+        .cv-subcontainer {
+          opacity: 1;
+          transition: opacity 0.4s ease-out 0.6s;
+        }
+        &::after {
           transition: bottom 1s ease-out 0.4s;
         }
-        &.quarter-2::after {
-          transition: bottom 1s ease-out 0.4s;
+      }
+      &.quarter-3 {
+        .cv-subcontainer {
+          opacity: 1;
+          transition: opacity 0.4s ease-out 0.8s;
         }
-        &.quarter-3::after {
+        &::after {
           transition: bottom 1s ease-out 0.6s;
         }
-        &.quarter-4::after {
+      }
+      &.quarter-4 {
+        .cv-subcontainer {
+          opacity: 1;
+          transition: opacity 0.4s ease-out 1s;
+        }
+        &::after {
           transition: bottom 1s ease-out 0.8s;
         }
       }
     }
+  }
+  .cv-contact {
+    opacity: 1;
+    margin: 6vh 0 2vh 0;
+    transition: color 0.2s ease-out, margin 0.2s ease-out 2s, opacity 0.2s ease-out 2s;
   }
 }
 
