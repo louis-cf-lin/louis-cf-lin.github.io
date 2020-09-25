@@ -433,11 +433,11 @@ p {
     position: relative;
     color: white;
     .ls-letter {
-      margin: 0 0.8rem;
+      margin: 0 0.6rem;
       text-align: center;
       transition: margin 0.2s ease-out 0.4s;
-      &.s {
-        padding-left: 1.5vw;
+      &.space {
+        width: 1vw;
       }
     }
   }
@@ -452,26 +452,27 @@ p {
     // column-gap: 1vw;
     // column-gap: 1vw;
   }
-  .vid-container {
+  video {
     position: relative;
     filter: grayscale(100%);
-    video {
-      width: 100%;
-      height: 100%;
-      &:nth-child(-n+3) {
-        align-self: flex-end;
-      }
-      &:nth-last-child(-n+3) {
-        align-self: flex-start;
-      }
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    width: 100%;
+    height: 100%;
+    &:nth-child(-n+3) {
+      align-self: center;
     }
-    img {
-      z-index: -1;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
+    &:nth-last-child(-n+3) {
+      align-self: center;
+    }
+    &:hover {
+      filter: grayscale(0);
+      -webkit-filter: grayscale(0);
+      -moz-filter: grayscale(0);
+      -ms-filter: grayscale(0);
+      -o-filter: grayscale(0);
     }
   }
 }
@@ -483,15 +484,15 @@ p {
       transition: none;
       .ls-letter {
         opacity: 0;
-        margin: 0 1rem;
+        margin: 0 0.8rem;
         transition: margin 6s cubic-bezier(.64,.95,.66,.99);
       }
     }
   }
-  @for $i from 1 through 12 {
+  @for $i from 1 through 13 {
     .ls-letter:nth-of-type(#{$i}) {
-      animation: 1.5s ls forwards;
-      animation-delay: random() + s;
+      animation: 3s ls forwards;
+      animation-delay: random(3) + s;
     }
   }
 }
@@ -820,10 +821,10 @@ footer.active {
     opacity: 0;
     filter: blur(5px);
   }
-  50% {
-    opacity: 0;
-    filter: blur(5px);
-  }
+  // 50% {
+  //   opacity: 0;
+  //   filter: blur(5px);
+  // }
   100% {
     opacity: 1;
     filter: blur(0);

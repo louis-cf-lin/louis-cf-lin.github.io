@@ -28,20 +28,24 @@ document.querySelectorAll('.menu-item').forEach((el, i) => {
   })
 })
 
-document.querySelectorAll('.vid-container').forEach((el, i) => {
+document.querySelectorAll('video').forEach((el, i) => {
   var width = el.style.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
   ratio = 500 / 1280
   el.style.width = width / 3 + 'px'
   el.style.height = width / 3 * ratio + 'px'
-  const vid = el.querySelector('video')
-  vid.addEventListener('timeupdate', () => {
-    console.log(vid.currentTime)
+  el.addEventListener('timeupdate', () => {
+    if (el.currentTime < 0.2 && el.getAttribute('status') === '1') {
+      el.setAttribute('status', '0')
+    } else if (el.currentTime > 0.2 && el.getAttribute('status') === '0') {
+      el.pause()
+      el.setAttribute('status', '1')
+    }
   })
-  vid.addEventListener('mouseenter', () => {
-    vid.play()
+  el.addEventListener('mouseenter', () => {
+    el.play()
   })
-  vid.addEventListener('ended', () => {
-    vid.play()
+  el.addEventListener('ended', () => {
+    el.play()
   })
 })
 
