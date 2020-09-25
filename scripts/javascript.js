@@ -30,6 +30,12 @@ document.querySelectorAll('.footer-item').forEach((el, i) => {
   })
 })
 
+document.getElementById('cv-work-exp').addEventListener('click', () => {
+  fullpage_api.moveTo(4)
+})
+document.getElementById('cv-projects').addEventListener('click', () => {
+  fullpage_api.moveTo(3)
+})
 document.getElementById('footer-logo').addEventListener('click', () => {
   fullpage_api.moveTo(1)
 })
