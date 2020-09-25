@@ -28,6 +28,23 @@ document.querySelectorAll('.menu-item').forEach((el, i) => {
   })
 })
 
+document.querySelectorAll('.vid-container').forEach((el, i) => {
+  var width = el.style.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+  ratio = 500 / 1280
+  el.style.width = width / 3 + 'px'
+  el.style.height = width / 3 * ratio + 'px'
+  const vid = el.querySelector('video')
+  vid.addEventListener('timeupdate', () => {
+    console.log(vid.currentTime)
+  })
+  vid.addEventListener('mouseenter', () => {
+    vid.play()
+  })
+  vid.addEventListener('ended', () => {
+    vid.play()
+  })
+})
+
 document.querySelectorAll('.footer-item').forEach((el, i) => {
   el.querySelector('h3').addEventListener('click', () => {
     fullpage_api.moveTo(i + 2)
@@ -43,3 +60,11 @@ document.getElementById('cv-projects').addEventListener('click', () => {
 document.getElementById('footer-logo').addEventListener('click', () => {
   fullpage_api.moveTo(1)
 })
+
+var pauseFunc = () => {
+  console.log(this)
+  if (this.currentTime >= 0.5) {
+    this.pause()
+    this.removeEventListener('timeupdate', pauseFunc)
+  }
+}
